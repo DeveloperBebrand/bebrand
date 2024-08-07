@@ -25,11 +25,14 @@ export default function Page() {
         
   
       <ModalProvider>
-      <Header/>
-         
-         <HomePage />
      
-         <Footer /> </ModalProvider>
+        <Header/>
+              
+          <HomePage />
+     
+          
+        <Footer />
+      </ModalProvider>
          
         
        

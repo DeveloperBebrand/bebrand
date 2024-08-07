@@ -74,57 +74,64 @@ export default function Projects() {
 
   
 // ... existing code ...
-  useEffect(() => {
-    refs.current.forEach((ref, index) => {
-      if (ref) {
-        const observer = new IntersectionObserver(
-          ([entry]) => {
-            if (entry.isIntersecting) {
-              gsap.to(`.image-animation-${index}`, {
-                clipPath: "inset(0 0% 0 0)",
-                duration: 1.3,
-                ease: "power2.out",
-                onComplete: () => {
-                  gsap.to(`.text-animation-${index}`, {
-                    opacity: 1,
-                    duration: 1,
-                    delay: 0.8,
-                  });
-                },
-              });
-              gsap.to(`.number-animation-${index}`, {
-                opacity: 1,
-                duration: 1.3,
-                delay: 0.8,
-              });
-            } else {
-              gsap.to(`.image-animation-${index}`, {
-                clipPath: "inset(0 100% 0 0)",
-                duration: 0,
-              });
-              gsap.to(`.text-animation-${index}`, {
-                opacity: 0,
-                duration: 0,
-              });
-              gsap.to(`.number-animation-${index}`, {
-                opacity: 0,
-                duration: 0,
-              });
-            }
-          },
-          { threshold: 0.1 } // Adjust this threshold as needed
-        );
-        observer.observe(ref);
-        observers.current.push(observer);
-      }
-    });
-  
-    const currentObservers = observers.current; // Copy observers.current to a variable
-  
-    return () => {
-      currentObservers.forEach((observer: any) => observer.disconnect());
-    };
-  }, []);
+ // ... existing code ...
+
+ useEffect(() => {
+  refs.current.forEach((ref, index) => {
+    if (ref) {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            gsap.to(`.image-animation-${index}`, {
+              clipPath: "inset(0 0% 0 0)",
+              duration: 1.3,
+              ease: "power2.out",
+              onComplete: () => {
+                gsap.to(`.text-animation-${index}`, {
+                  opacity: 1,
+                  duration: 0.8,
+                  delay: 0.4,
+                });
+              },
+            });
+            gsap.to(`.number-animation-${index}`, {
+              opacity: 1,
+              duration: 0.8,
+              delay: 1.2,
+            });
+
+            // Disconnect observer after first intersection
+            observer.disconnect();
+          } else {
+            gsap.to(`.image-animation-${index}`, {
+              clipPath: "inset(0 100% 0 0)",
+              duration: 0,
+            });
+            gsap.to(`.text-animation-${index}`, {
+              opacity: 0,
+              duration: 0,
+            });
+            gsap.to(`.number-animation-${index}`, {
+              opacity: 0,
+              duration: 0.4,
+            });
+          }
+        },
+        { threshold: 0.1, rootMargin: "-100px" } // Adjust this threshold as needed
+      );
+      observer.observe(ref);
+      observers.current.push(observer);
+    }
+  });
+
+  const currentObservers = observers.current; // Copy observers.current to a variable
+
+  return () => {
+    currentObservers.forEach((observer: any) => observer.disconnect());
+  };
+}, []);
+
+// ... existing code ...
 // ... existing code ...
   return (
     <>
@@ -171,11 +178,11 @@ export default function Projects() {
             onLoad={() => setImageLoaded(true)}
             src={project.image}
             alt={project.title}
-            className={`object-cover rounded-md w-full h-[450px] image-animation-${index}`}
+            className={`object-contain rounded-md w-full h-[450px] image-animation-${index}`}
           />
         </div>
         <motion.h2
-          className={`text-white md:text-6xl text-4xl md:px-0 px-4 font-bold mt-5 absolute bottom-5 ${
+          className={`text-white md:text-6xl lg:text-4xl text-3xl md:px-0 px-4 font-bold mt-24 absolute bottom-5 ${
             project.imagePosition === "left"
               ? "md:-left-[400px] left-[0px]"
               : "md:-right-[400px] right-[0px]"

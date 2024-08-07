@@ -70,7 +70,7 @@ export default function Form() {
   return (
     <>
       <ToastContainer />
-      <form className="flex flex-col items-center justify-center w-full max-w-md mx-auto" onSubmit={handleSubmit}> {/* Center the form */}
+      <form className="flex flex-col items-center justify-center w-full max-w-md mx-auto " onSubmit={handleSubmit}> {/* Center the form */}
         <div className="w-full">
           <div>
             <div className="relative mt-5 w-full flex flex-col ">
@@ -82,7 +82,7 @@ export default function Form() {
                 className="form-modal-input border-1 h-12 outline-none peer block w-full appearance-none rounded-lg border border-gray-300 bg-transparent px-2.5 pb-2.5 pt-4 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
                 placeholder=" "
                 value={full_name}
-                style={{border:'1px solid #3b3b3b' ,height:'48px'}}
+
                 onChange={(e) => setFull_name(e.target.value)}
               />
               <label
@@ -95,9 +95,10 @@ export default function Form() {
             </div>
             <div className="relative mt-5 w-full *: "  >
               <input
+              
                 type="text"
                 id="email"
-                className="border-1 h-12 peer block w-full appearance-none rounded-lg border border-gray-300 bg-transparent px-2.5 pb-2.5 pt-4 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
+                className="border-1 h-12 peer block form-modal-input w-full appearance-none rounded-lg border border-gray-300 bg-transparent px-2.5 pb-2.5 pt-4 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
                 placeholder=" "
                 value={email}
                
@@ -114,7 +115,7 @@ export default function Form() {
         </div>
         <div className="relative mt-5 w-full">
           <PhoneInput
-            className="w-full h-12"
+            className="w-full   form-modal-input"
             defaultCountry="ae"
             disableFormatting={true}
             value={phone}
@@ -138,6 +139,7 @@ export default function Form() {
                 fontWeight: "bold",
                 cursor: "pointer",
               }),
+             
               control: (provided) => ({
                 ...provided,
                 height: "48px", // equivalent to h-12 in Tailwind

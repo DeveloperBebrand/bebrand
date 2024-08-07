@@ -30,7 +30,7 @@ export default function HowWeWork() {
  
         <div className="container">
           <span className="text-primary text-sm">The Methodologies</span>
-          <h2 className="text-secondary text-4xl font-bold mt-5">
+          <h2 className="text-secondary lg:text-4xl text-2xl font-bold mt-5">
           Why create something you would not yearn to engage with yourself? We breathe life into brands,
              granting them a soul felt in every communication, product, and experience. 
           </h2>
