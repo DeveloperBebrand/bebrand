@@ -59,7 +59,7 @@ export default function Projects() {
     },
     {
       id: 5,
-      title: "BEYOND , From Source toIndustries ",
+      title: "BEYOND , FROM SOURCE TO INDUSTRIES ",
       description:
         "We deliver high-quality industrial minerals and construction materials across continents. Our network is for efficient logistics and distribution, enabling local markets to benefit from global resources ",
       image: ProjectThree,
@@ -182,7 +182,7 @@ export default function Projects() {
           />
         </div>
         <motion.h2
-          className={`text-white md:text-6xl lg:text-4xl text-3xl md:px-0 px-4 font-bold  absolute lg:bottom-10 bottom-5  ${
+          className={`text-white md:text-6xl cap lg:text-4xl text-3xl md:px-0 px-4 font-bold  absolute lg:bottom-10 bottom-5  ${
             project.imagePosition === "left"
               ? "md:-left-[400px] left-[0px]"
               : "md:-right-[400px] right-[0px]"

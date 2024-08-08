@@ -1,7 +1,5 @@
 import Image from "next/image";
 import useImages from "../../hooks/useImages";
-import { gsap } from "gsap";
-
  
 export default function HowWeWork() {
       const { Contemplating, Designing, Manifesting } = useImages();

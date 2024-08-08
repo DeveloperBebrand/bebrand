@@ -39,7 +39,7 @@ export default function HomePage() {
                         className="text-white lg:text-6xl text-4xl mt-20 font-bold lg:leading-18 leading-10"
                         initial={{ clipPath: "inset(100% 0 0 0)" }}
                         animate={{ clipPath: "inset(0% 0 0 0)" }}
-                        transition={{ duration: 0.7, delay: 0.5 }}
+                        transition={{ duration: 0.6, delay: 0.1 }}
                       >
                         We create brands you want to be a customer of.
                       </motion.h1>
@@ -59,12 +59,13 @@ export default function HomePage() {
                         initial={{ clipPath: "inset(0 100% 0 0)" }}
                         animate={{ clipPath: "inset(0 0 0 0)" }}
                         transition={{
-                          duration: 1,
-                          delay: 0.9,
+                          duration: 0.3,
+                          delay: 0.7,
                           ease: [0.175, 0.885, 0.32, 1.275], // custom bezier curve for elastic effect
                         }}
                       >
                         <LinkButton
+                        className="border-4 border-white"
                           buttontype="button"
                           type="dark"
                           url="javascript:void(0)"
@@ -91,8 +92,8 @@ export default function HomePage() {
                         initial={{ clipPath: "inset(0 100% 0 0)" }}
                         animate={{ clipPath: "inset(0 0 0 0)" }}
                         transition={{
-                          duration: 1,
-                          delay: 1,
+                          duration: 0.3,
+                          delay: 0.7,
                           ease: [0.175, 0.885, 0.32, 1.275], // custom bezier curve for elastic effect
                         }}
                         className="flex md:flex-row flex-col md:items-center gap-5 mt-16 md:block hidden "
