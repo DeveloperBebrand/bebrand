@@ -84,13 +84,13 @@ export default function Projects() {
           if (entry.isIntersecting) {
             gsap.to(`.image-animation-${index}`, {
               clipPath: "inset(0 0% 0 0)",
-              duration: 1.3,
+              duration: 0.9,
               ease: "power2.out",
               onComplete: () => {
                 gsap.to(`.text-animation-${index}`, {
                   opacity: 1,
-                  duration: 0.8,
-                  delay: 0.4,
+                  duration: 0.3,
+                  delay: 0.1,
                 });
               },
             });
@@ -172,17 +172,17 @@ export default function Projects() {
     ) : null}
 
     <div>
-      <div className="relative lg:p-10">
+      <div className="relative  ">
         <div className=" inset-0 bg-black opacity-70 rounded-md">
           <Image
             onLoad={() => setImageLoaded(true)}
             src={project.image}
             alt={project.title}
-            className={`object-contain rounded-md w-full h-[450px] image-animation-${index}`}
+            className={`lg:object-cover object-contain rounded-md w-full h-[450px] image-animation-${index} hover:transform hover:scale-90 hover:rotate-3 transition-transform duration-300`}
           />
         </div>
         <motion.h2
-          className={`text-white md:text-6xl lg:text-4xl text-3xl md:px-0 px-4 font-bold mt-24 absolute bottom-5 ${
+          className={`text-white md:text-6xl lg:text-4xl text-3xl md:px-0 px-4 font-bold  absolute lg:bottom-10 bottom-5  ${
             project.imagePosition === "left"
               ? "md:-left-[400px] left-[0px]"
               : "md:-right-[400px] right-[0px]"

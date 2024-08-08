@@ -1,5 +1,7 @@
 import Image from "next/image";
 import useImages from "../../hooks/useImages";
+import { gsap } from "gsap";
+
  
 export default function HowWeWork() {
       const { Contemplating, Designing, Manifesting } = useImages();
@@ -31,10 +33,13 @@ export default function HowWeWork() {
         <div className="container">
           <span className="text-primary text-sm">The Methodologies</span>
           <h2 className="text-secondary lg:text-4xl text-2xl font-bold mt-5">
-          Why create something you would not yearn to engage with yourself? We breathe life into brands,
-             granting them a soul felt in every communication, product, and experience. 
+          Why create something you would not yearn to engage with yourself?
           </h2>
-        
+          
+          <p className="text-primarylight text-base mt-5">
+          We breathe life into brands,
+          granting them a soul felt in every communication, product, and experience. 
+          </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-10">
             {HowThisWorks?.map((item, index) => (

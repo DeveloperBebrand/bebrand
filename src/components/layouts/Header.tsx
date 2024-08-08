@@ -15,22 +15,23 @@ import { useModal } from "../context/ModalContext";
   const handleMenuClick = (id: number) => {
     const selectedItem = menu.find(item => item.id === id);
     if (selectedItem) {
-      const url = selectedItem.url; // Define the url variable
-      setMenu(menu.map(item => ({
-        ...item,
-        isActive: item.id === id
-      })));
-      const elementId = url.split('#')[1];
-      setElementId(elementId || null);
-      const element = document.getElementById(elementId);
-      if (element) {
-        window.scrollTo({
-          top: element.offsetTop,
-          behavior: 'smooth'
-        });
-      }
+        const url = selectedItem.url;
+        setMenu(menu.map(item => ({
+            ...item,
+            isActive: item.id === id
+        })));
+        const elementId = url.split('#')[1];
+        setElementId(elementId || null);
+        const element = document.getElementById(elementId);
+        if (element) {
+            const navbarHeight = document.querySelector('header')?.offsetHeight || 0;
+            window.scrollTo({
+                top: element.offsetTop - navbarHeight,
+                behavior: 'smooth'
+            });
+        }
     }
-  };
+};
  
     const [menu, setMenu] = useState([
     {
@@ -147,6 +148,7 @@ import { useModal } from "../context/ModalContext";
         <div className="p-4">
           <LinkButton
           buttontype="button"
+          onClick={openModal}
              type="dark"
             text="Enquire Now"
             url="/"

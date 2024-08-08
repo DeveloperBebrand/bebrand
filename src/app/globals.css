@@ -42,7 +42,7 @@ body{
 
 .outlined-number {
   color: transparent;
-  -webkit-text-stroke: 2px #ffffff; /* Adjust the stroke color and width as needed Bro */
+  -webkit-text-stroke: 2px rgb(61, 60, 60); /* Adjust the stroke color and width as needed Bro */
   top: 0;
   left: 0;
   opacity: 0.1; /* Adjust the opacity as needed */
@@ -73,10 +73,29 @@ input{
   
  
 }
-
-
-@media (max-width: 480px) {
-  .form-modal-input{
-    width: 300px !important;
-  }
+.progress-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  background-color: #352b2b;
+  border-radius: 25px;
+  overflow: hidden;
 }
+
+.progress-bar {
+  height: 40px;
+  width: 0;
+  background-color: #9f7546;
+  text-align: center;
+  line-height: 30px;
+  color: #ffffff;
+  border-radius: 25px;
+}
+ 
+ 
+ 
+
+
+ 

@@ -42,7 +42,7 @@ export default function Form() {
     setLoading(true); // Set loading to true before request
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8000/api/send-email",
+        "https://bebrandadmin.beviparena.com/public/api/send-email",
         data,
         {
           headers: {
