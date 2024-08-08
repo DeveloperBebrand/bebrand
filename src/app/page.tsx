@@ -22,12 +22,12 @@ export default function Page() {
 
   useEffect(() => {
     // Simulate image loading
-    const loadImages =   () => {
+    const LoadImages =   () => {
        useImages(); // Assuming useImages is a function that loads images
       setLoading(false);
     };
 
-    loadImages();
+    LoadImages();
   }, [loading]);
   return (
     <> 
