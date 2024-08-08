@@ -81,7 +81,7 @@ import { useModal } from "../context/ModalContext";
 
    const { openModal, isModalOpen, closeModal } = useModal();
    return (
-    <header className="text-white fixed z-10 top-0 left-0 w-full bg-secondary" style={{position: "sticky", top: "0"}}>
+    <header className="text-white fixed z-10 top-0 left-0 w-full bg-secondary">
       <div className="container">
         <div className="h-20 flex justify-between items-center">
           <div>
