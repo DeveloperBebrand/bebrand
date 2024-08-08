@@ -65,8 +65,7 @@ export default function HomePage() {
                         }}
                       >
                         <LinkButton
-                        className="border-4 border-white"
-                          buttontype="button"
+                            buttontype="button"
                           type="dark"
                           url="javascript:void(0)"
                            text="Ready to get started"
