@@ -10,14 +10,26 @@ import Form from "../Form/Form";
 import { useModal } from "../context/ModalContext";
  export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [elementId, setElementId] = useState<string | null>(null);
   const { Logo } = useImages();
   const handleMenuClick = (id: number) => {
-    setMenu(menu.map(item => ({
-      ...item,
-      isActive: item.id === id
-    })));
-   
- 
+    const selectedItem = menu.find(item => item.id === id);
+    if (selectedItem) {
+      const url = selectedItem.url; // Define the url variable
+      setMenu(menu.map(item => ({
+        ...item,
+        isActive: item.id === id
+      })));
+      const elementId = url.split('#')[1];
+      setElementId(elementId || null);
+      const element = document.getElementById(elementId);
+      if (element) {
+        window.scrollTo({
+          top: element.offsetTop,
+          behavior: 'smooth'
+        });
+      }
+    }
   };
  
     const [menu, setMenu] = useState([
@@ -69,7 +81,7 @@ import { useModal } from "../context/ModalContext";
 
    const { openModal, isModalOpen, closeModal } = useModal();
    return (
-    <header className="text-white fixed z-10 top-0 left-0 w-full bg-secondary">
+    <header className="text-white fixed z-10 top-0 left-0 w-full bg-secondary" style={{position: "sticky", top: "0"}}>
       <div className="container">
         <div className="h-20 flex justify-between items-center">
           <div>

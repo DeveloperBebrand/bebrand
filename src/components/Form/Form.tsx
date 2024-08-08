@@ -79,7 +79,7 @@ export default function Form() {
               
                 type="text"
                 id="name"
-                className="form-modal-input border-1 h-12 outline-none peer block w-full appearance-none rounded-lg border border-gray-300 bg-transparent px-2.5 pb-2.5 pt-4 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
+                className="form-modal-input border-2 h-12 outline-none peer block w-full appearance-none rounded-lg   border-gray-300 bg-transparent px-2.5 pb-2.5 pt-4 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
                 placeholder=" "
                 value={full_name}
 
@@ -87,7 +87,7 @@ export default function Form() {
               />
               <label
                 htmlFor="name"
-                className="absolute top-2 left-1 z-10 origin-[0] -translate-y-4 scale-75 transform cursor-text select-none bg-white px-2 text-sm text-gray-500 duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:px-2 peer-focus:text-blue-600"
+                className="absolute top-2 left-1  z-10 origin-[0] -translate-y-4 scale-75 transform cursor-text select-none bg-white px-2 text-sm text-gray-500 duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:px-2 peer-focus:text-blue-600"
               >
                 Enter Your Name
               </label>
@@ -98,7 +98,7 @@ export default function Form() {
               
                 type="text"
                 id="email"
-                className="border-1 h-12 peer block form-modal-input w-full appearance-none rounded-lg border border-gray-300 bg-transparent px-2.5 pb-2.5 pt-4 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
+                className="border-2 h-12 peer block form-modal-input w-full appearance-none rounded-lg     border-gray-300 bg-transparent px-2.5 pb-2.5 pt-4 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
                 placeholder=" "
                 value={email}
                
@@ -115,7 +115,7 @@ export default function Form() {
         </div>
         <div className="relative mt-5 w-full">
           <PhoneInput
-            className="w-full   form-modal-input"
+            className="w-full border-2 rounded-lg   form-modal-input"
             defaultCountry="ae"
             disableFormatting={true}
             value={phone}
@@ -123,7 +123,7 @@ export default function Form() {
             onChange={(phone) => setPhone(phone)}
           />
         </div>
-        <div className="mt-5 w-full">
+        <div className="mt-5 w-full border-2 rounded-lg ">
           <Select
             isMulti
             placeholder="Select Services"
@@ -138,12 +138,15 @@ export default function Form() {
                 fontSize: "16px",
                 fontWeight: "bold",
                 cursor: "pointer",
+               
               }),
              
               control: (provided) => ({
                 ...provided,
-                height: "48px", // equivalent to h-12 in Tailwind
+                minHeight: "48px",
+                maxHeight: "100%",
               }),
+
             }}
             options={options as any}
             value={selectedOptions}
@@ -161,7 +164,7 @@ export default function Form() {
           <textarea
             id="message"
             rows={4}
-            className="block outline-none p-2.5 w-full text-sm  bg-gray-50 rounded-lg border border-gray-300 focus:ring-gold-500 focus:border-gold-500    dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="block border-2 outline-none p-2.5 w-full text-sm  bg-gray-50 rounded-lg   border-gray-300 focus:ring-gold-500 focus:border-gold-500    dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Write your thoughts here..."
             value={message}
             onChange={(e) => setMessage(e.target.value)}

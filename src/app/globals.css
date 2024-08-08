@@ -74,6 +74,7 @@ input{
  
 }
 
+
 @media (max-width: 480px) {
   .form-modal-input{
     width: 300px !important;
