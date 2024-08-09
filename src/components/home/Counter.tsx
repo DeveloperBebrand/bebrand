@@ -63,7 +63,7 @@ export default function Counter() {
                       href="tel:+2348123456789"
                       className="text-primary text-sm"
                     >
-                      +971568913509
+                     +971 56 830 6877
                     </Link>
                   </p>
                 </div>

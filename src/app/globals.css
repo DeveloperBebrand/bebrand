@@ -1,13 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-body{
-  font-family: "Poppins", sans-serif;  
-  user-select: text;
-
-  
+@font-face {
+  font-family: 'Helvetica';
+  src: url('/helvetica/Helvetica.ttf') format('truetype');
 }
+ 
+
+  body {
+    
+    user-select: text;
+  }
+
+
+ 
 ::selection{
   background-color: #9f7546;
   color: #ffffff;
@@ -123,3 +129,13 @@ input{
   0%, 100% { box-shadow: 0 0 10px 0px orange; }
   50% { box-shadow: 0 0 15px 5px orange; }
 } 
+.modal-responsive{
+  height: 73vh;
+}
+@media (max-width: 768px) {
+  .modal-responsive{
+    height: 91vh!important;
+  }
+}
+
+

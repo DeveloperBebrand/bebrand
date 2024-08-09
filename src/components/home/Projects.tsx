@@ -72,11 +72,9 @@ export default function Projects() {
     triggerOnce: true,
   });
 
-  
-// ... existing code ...
- // ... existing code ...
+  // ... existing code ...
 
- useEffect(() => {
+useEffect(() => {
   refs.current.forEach((ref, index) => {
     if (ref) {
       const observer = new IntersectionObserver(
@@ -99,9 +97,6 @@ export default function Projects() {
               duration: 0.8,
               delay: 1.2,
             });
-
-            // Disconnect observer after first intersection
-            observer.disconnect();
           } else {
             gsap.to(`.image-animation-${index}`, {
               clipPath: "inset(0 100% 0 0)",
@@ -124,15 +119,13 @@ export default function Projects() {
     }
   });
 
-  const currentObservers = observers.current; // Copy observers.current to a variable
-
   return () => {
-    currentObservers.forEach((observer: any) => observer.disconnect());
+    observers.current.forEach((observer: any) => observer.disconnect());
   };
 }, []);
 
 // ... existing code ...
-// ... existing code ...
+ 
   return (
     <>
       <section className="py-20 bg-secondary" id="the-schemes-at-hand">
@@ -145,7 +138,7 @@ export default function Projects() {
           {Projects.map((project, index) => (
   <div
     key={index}
-    className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 md:gap-10 gap-3 md:mt-20 mt-10"
+    className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 md:gap-10 gap-3 lg:mt-20 "
     ref={(el: any) => (refs.current[index] = el)}
   >
     {project.imagePosition === "left" ? (
@@ -153,6 +146,7 @@ export default function Projects() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.2, delay: 0.8 }}
+        
         className="flex items-center"
       >
           <h3 className={`text-[250px] md:block hidden outlined-number text-right number-animation-${index}`}>
@@ -178,11 +172,11 @@ export default function Projects() {
             onLoad={() => setImageLoaded(true)}
             src={project.image}
             alt={project.title}
-            className={`lg:object-cover object-contain rounded-md w-full h-[450px] image-animation-${index} hover:transform hover:scale-90 hover:rotate-3 transition-transform duration-300`}
+            className={`lg:object-fill   object-contain rounded-md w-full lg:h-[450px] h-[300px] image-animation-${index} hover:transform hover:scale-90 hover:rotate-3 transition-transform duration-300`}
           />
         </div>
         <motion.h2
-          className={`text-white md:text-6xl cap lg:text-4xl text-3xl md:px-0 px-4 font-bold  absolute lg:bottom-10 bottom-5  ${
+          className={`text-white md:text-6xl cap lg:text-4xl text-2xl md:px-0 px-4 font-bold  lg:absolute relative lg:bottom-10 bottom-2  ${
             project.imagePosition === "left"
               ? "md:-left-[400px] left-[0px]"
               : "md:-right-[400px] right-[0px]"
@@ -191,12 +185,13 @@ export default function Projects() {
           animate={{ y: "0%" }} // النص يتحرك إلى موضعه الطبيعي
           transition={{ duration: 0.7, delay: 0.5 }}
         >
-          {project.title}
+          {project.title} 
         </motion.h2>
       </div>
       <p className="text-lightgray text-sm mt-5">
         {project.description}
       </p>
+   
     </div>
     {project.imagePosition === "right" ? (
     <motion.div
