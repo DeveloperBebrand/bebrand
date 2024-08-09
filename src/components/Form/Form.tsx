@@ -139,6 +139,8 @@ export default function Form() {
                 fontSize: "16px",
                 fontWeight: "bold",
                 cursor: "pointer",
+                marginTop: "-1px",
+                
               }),
 
               control: (provided) => ({
@@ -155,14 +157,14 @@ export default function Form() {
         <div className="mt-5 w-full">
           <label
             htmlFor="message"
-            className="block mb-2 text-sm font-medium    "
+            className="block mb-2 mt-4 text-sm font-medium    "
           >
             Your message
           </label>
           <textarea
             id="message"
             rows={4}
-            className="block border-2 outline-none p-2.5 w-full text-sm  bg-gray-50 rounded-lg   border-gray-300 focus:ring-gold-500 focus:border-gold-500    dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="block border-2 mt-4 outline-none p-2.5 w-full text-sm  bg-gray-50 rounded-lg   border-gray-300 focus:ring-gold-500 focus:border-gold-500    dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Write your thoughts here..."
             value={message}
             onChange={(e) => setMessage(e.target.value)}

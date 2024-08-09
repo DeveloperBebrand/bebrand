@@ -43,13 +43,13 @@ export default function Modal({
           >
             <div
               className="bg-white  *: pb-4  modal-responsive flex flex-col justify-center items-center  *:"
-              style={{ height: "73vh" }}
+         
             >
               <div className="sm:flex sm:items-start">
                 <div className="  text-center  sm:mt-0 sm:text-left">
                   <DialogTitle
                     as="h3"
-                    className="text-3xl font-semibold leading-6 text-gray-900"
+                    className="text-3xl mt-20 font-semibold leading-6 text-gray-900"
                   >
                     Enquire Now
                   </DialogTitle>
