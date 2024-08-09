@@ -4,12 +4,14 @@ import useImages from "../../hooks/useImages";
 import { useEffect, useState } from "react";
 import LinkButton from "../buttons/LinkButton";
 import { FaBars, FaTimes } from "react-icons/fa";
-
 import { useModal } from "../context/ModalContext";
+
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [elementId, setElementId] = useState<string | null>(null);
   const { Logo } = useImages();
+  const { openModal, isModalOpen, closeModal } = useModal();
+
   const handleMenuClick = (id: number) => {
     const selectedItem = menu.find((item) => item.id === id);
     if (selectedItem) {
@@ -22,17 +24,24 @@ export default function Header() {
       );
       const elementId = url.split("#")[1];
       setElementId(elementId || null);
-      const element = document.getElementById(elementId);
-      if (element) {
-        const navbarHeight =
-          document.querySelector("header")?.offsetHeight || 0;
-        window.scrollTo({
-          top: element.offsetTop - navbarHeight,
-          behavior: "smooth",
-        });
-      }
     }
   };
+
+  useEffect(() => {
+    if (elementId) {
+      setTimeout(() => {
+        const element = document.getElementById(elementId);
+        if (element) {
+          const navbarHeight =
+            document.querySelector("header")?.offsetHeight || 0;
+          window.scrollTo({
+            top: element.offsetTop - navbarHeight,
+            behavior: "smooth",
+          });
+        }
+      }, 100); // تأخير بسيط لضمان تحديث الحالة
+    }
+  }, [elementId]);
 
   const [menu, setMenu] = useState([
     {
@@ -41,12 +50,10 @@ export default function Header() {
       url: "#home",
       isActive: true,
     },
-
     {
       id: 2,
-      title: " Methodologies  ",
-      url: " #methodologies",
-
+      title: "Methodologies",
+      url: "#methodologies",
       isActive: false,
     },
     {
@@ -75,13 +82,12 @@ export default function Header() {
     },
     {
       id: 7,
-      title: "Join Us  ",
+      title: "Join Us",
       url: "#join-us",
       isActive: false,
     },
   ]);
 
-  const { openModal, isModalOpen, closeModal } = useModal();
   return (
     <header className="text-white fixed z-10 top-0 left-0 w-full bg-secondary">
       <div className="container">
@@ -89,7 +95,7 @@ export default function Header() {
           <div>
             <Image src={Logo} alt="Logo" width={50} height={50} />
           </div>
-          <div className="hidden lg:flex">
+          <div className="hidden  lg:flex ">
             <ul className="flex space-x-6">
               {menu.map((item) => (
                 <a
@@ -99,9 +105,7 @@ export default function Header() {
                 >
                   <li
                     className={`cursor-pointer relative group ${
-                      item.isActive
-                        ? "text-primary  "
-                        : ""
+                      item.isActive ? "text-primary" : ""
                     }`}
                   >
                     {item.title}
@@ -118,7 +122,6 @@ export default function Header() {
               url="javascript:void(0)"
               text="Enquire Now"
               onClick={openModal}
-              // side={"l"}
             />
           </div>
           <div className="lg:hidden">
@@ -133,27 +136,24 @@ export default function Header() {
           isMenuOpen ? "h-screen opacity-100" : "h-0 opacity-0"
         } overflow-hidden`}
       >
-        <ul className="flex flex-col space-y-4 p-4 ab ">
+        <ul className="flex flex-col space-y-4 p-4">
           {menu.map((item) => (
-            <>
-              <a
-                href={item.url}
-                key={item.id}
-                onClick={() => {
-                  setIsMenuOpen(false);
-                  handleMenuClick(item.id);
-                }}
+            <a
+              key={item.id}
+              onClick={() => {
+                setIsMenuOpen(false);
+                handleMenuClick(item.id);
+              }}
+            >
+              <li
+                className={`cursor-pointer relative group ${
+                  item.isActive ? "text-primary" : ""
+                }`}
               >
-                <li
-                  className={`cursor-pointer relative group ${
-                    item.isActive ? "text-primary" : ""
-                  }`}
-                >
-                  {item.title}
-                  <span className="absolute bottom-0 left-1/2 w-0 h-[2px] bg-primary transition-all duration-300 transform -translate-x-1/2 group-hover:w-full"></span>
-                </li>
-              </a>
-            </>
+                {item.title}
+                <span className="absolute bottom-0 left-1/2 w-0 h-[2px] bg-primary transition-all duration-300 transform -translate-x-1/2 group-hover:w-full"></span>
+              </li>
+            </a>
           ))}
         </ul>
         <div className="p-4">
@@ -167,7 +167,6 @@ export default function Header() {
           />
         </div>
       </div>
-
       <div className="h-[1px] bg-gradient-to-l from-transparent via-primary to-transparent"></div>
     </header>
   );

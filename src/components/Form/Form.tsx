@@ -15,6 +15,7 @@ export default function Form() {
     { value: "Workshops", label: "Workshops" },
     { value: "Development Atelier", label: "Development Atelier" },
     { value: "Digital Marketing", label: "Digital Marketing" },
+    
   ];
 
   const [phone, setPhone] = useState("");
@@ -139,7 +140,7 @@ export default function Form() {
                 fontSize: "16px",
                 fontWeight: "bold",
                 cursor: "pointer",
-                marginTop: "-1px",
+                marginTop: "-10px",
                 
               }),
 

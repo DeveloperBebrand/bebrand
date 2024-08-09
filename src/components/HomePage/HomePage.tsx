@@ -75,7 +75,7 @@ export default function HomePage() {
                       <p className="text-lightgray text-sm md:block hidden">
                         Or call us at{" "}
                         <Link
-                          href="tel:+2348123456789"
+                          href="tel:+971568306877"
                           className="text-white text-sm"
                         >
                           +971 56 830 6877
