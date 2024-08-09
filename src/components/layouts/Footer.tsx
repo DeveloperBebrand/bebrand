@@ -17,7 +17,6 @@ export default function Footer() {
             <div onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} >
                 <div 
                   className="hover:-mt-4 transition-all duration-3000 ease-in-out w-10 h-10 rounded-full flex justify-center items-center"
-                   
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
