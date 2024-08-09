@@ -12,6 +12,7 @@ type LinkButtonProps = {
   onClick?: () => void;
   className?: string;
   ref?: React.RefObject<HTMLAnchorElement>;
+  style?: React.CSSProperties;
 };
 
 export default function LinkButton({
@@ -26,7 +27,7 @@ export default function LinkButton({
   onMouseLeave,
   onClick,
   className,
-  
+  style,
 }: LinkButtonProps) {
   
   return type === "light" ? (
@@ -35,6 +36,7 @@ export default function LinkButton({
       onMouseLeave={onMouseLeave}
       href={url || "javascript.void(0)"}
       onClick={onClick}
+      style={style}
       className={`${
         side === "r" ? "bg-gradient-to-r" : "bg-gradient-to-l"
       }  from-white to-transparent  text-secondary
@@ -64,9 +66,10 @@ export default function LinkButton({
     <Link
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
-      href={url || '/'}
+      href={url || "/"}
       onClick={onClick}
-       className={`${
+      style={style}
+      className={`${
         side !== "r" ? "bg-gradient-to-r" : "bg-gradient-to-l"
       } from-primary to-transparent text-white hover:bg-gradient-to-r
         ${icon ? "px-7 py-3" : "px-5 py-3"}

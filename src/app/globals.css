@@ -1,13 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-body{
-  font-family: "Poppins", sans-serif;  
-  user-select: text;
-
-  
+@font-face {
+  font-family: 'Helvetica';
+  src: url('/helvetica/Helvetica.ttf') format('truetype');
 }
+ 
+
+  body {
+    
+    user-select: text;
+  }
+
+
+ 
 ::selection{
   background-color: #9f7546;
   color: #ffffff;
@@ -42,7 +48,7 @@ body{
 
 .outlined-number {
   color: transparent;
-  -webkit-text-stroke: 2px #ffffff; /* Adjust the stroke color and width as needed Bro */
+  -webkit-text-stroke: 2px #363535; /* Adjust the stroke color and width as needed Bro */
   top: 0;
   left: 0;
   opacity: 0.1; /* Adjust the opacity as needed */
@@ -80,3 +86,54 @@ input{
     width: 300px !important;
   }
 }
+
+
+
+
+ 
+.progress {
+  --progress: 0%;
+  
+  width: 500px;
+  height: 50px;
+  margin: 9em auto;
+  border: 1px solid #fff;
+  padding: 12px 10px;
+  box-shadow: 0 0 10px #aaa;
+}
+
+.progress .bar {
+  width: var(--progress);
+  height: 100%;
+  background: linear-gradient(gold, #c85, gold);
+  background-repeat: repeat;
+  box-shadow: 0 0 10px 0px orange;
+  animation: 
+    shine 4s ease-in infinite,
+    end 1s ease-out 1;
+  transition: width 3s ease;
+}
+
+@property --progress {
+  syntax: "<length>";
+  initial-value: 0%;
+  inherits: true;
+}
+
+@keyframes shine {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 50px; }
+}
+
+@keyframes end {
+  0%, 100% { box-shadow: 0 0 10px 0px orange; }
+  50% { box-shadow: 0 0 15px 5px orange; }
+} 
+ 
+@media (max-width: 768px) {
+  .modal-responsive{
+    height: 91vh!important;
+  }
+}
+
+

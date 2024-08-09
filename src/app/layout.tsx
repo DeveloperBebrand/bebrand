@@ -1,16 +1,26 @@
 "use client"
 
  
-import { Inter } from "next/font/google";
-import "./globals.css";
-import Header from "../components/layouts/Header";
-import SmoothScroll from "../components/scroll/SmoothScroll";
-import Footer from "../components/layouts/Footer";
+ import "./globals.css";
+ 
 import AnimatedCursor from "react-animated-cursor";
-import { ModalProvider } from "@/components/context/ModalContext";
+ 
 import { useEffect, useState } from "react";
-import { Metadata } from "next";
-const inter = Inter({ subsets: ["latin"] });
+ 
+import {   Poppins } from "next/font/google";
+import localFont from 'next/font/local'
+
+
+
+ const myfont = localFont({
+  src: '../../public/helvetica/Helvetica.ttf',
+   
+  display: 'swap',
+})
+// const poppins = Poppins({
+//   weight: ["400", "500", "600", "700", "800", "900"],
+//   subsets: ["latin"],
+// });
 
  
 
@@ -42,7 +52,7 @@ export default function RootLayout({
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />
       </head>
-      <body className={inter.className}>
+      <body className={myfont.className}>
         {!isSmallScreen && (
           <AnimatedCursor
             innerSize={20}
@@ -70,11 +80,13 @@ export default function RootLayout({
             ]}
           />
         )}
-        <SmoothScroll>
+ 
+
+       
           <main>
             {children}
           </main>
-        </SmoothScroll>
+      
       </body>
     </html>
   );

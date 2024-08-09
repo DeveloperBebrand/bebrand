@@ -1,50 +1,52 @@
- "use client";
+"use client";
 import Image from "next/image";
 import useImages from "../../hooks/useImages";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import LinkButton from "../buttons/LinkButton";
- import { FaBars, FaTimes } from "react-icons/fa";
-import Modal from "../Modal/Modal";
-import Form from "../Form/Form";
+import { FaBars, FaTimes } from "react-icons/fa";
+
 import { useModal } from "../context/ModalContext";
- export default function Header() {
+export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [elementId, setElementId] = useState<string | null>(null);
   const { Logo } = useImages();
   const handleMenuClick = (id: number) => {
-    const selectedItem = menu.find(item => item.id === id);
+    const selectedItem = menu.find((item) => item.id === id);
     if (selectedItem) {
-      const url = selectedItem.url; // Define the url variable
-      setMenu(menu.map(item => ({
-        ...item,
-        isActive: item.id === id
-      })));
-      const elementId = url.split('#')[1];
+      const url = selectedItem.url;
+      setMenu(
+        menu.map((item) => ({
+          ...item,
+          isActive: item.id === id,
+        }))
+      );
+      const elementId = url.split("#")[1];
       setElementId(elementId || null);
       const element = document.getElementById(elementId);
       if (element) {
+        const navbarHeight =
+          document.querySelector("header")?.offsetHeight || 0;
         window.scrollTo({
-          top: element.offsetTop,
-          behavior: 'smooth'
+          top: element.offsetTop - navbarHeight,
+          behavior: "smooth",
         });
       }
     }
   };
- 
-    const [menu, setMenu] = useState([
+
+  const [menu, setMenu] = useState([
     {
       id: 1,
       title: "Home",
       url: "#home",
       isActive: true,
     },
-    
+
     {
       id: 2,
       title: " Methodologies  ",
-       url: " #methodologies",
- 
+      url: " #methodologies",
+
       isActive: false,
     },
     {
@@ -76,11 +78,11 @@ import { useModal } from "../context/ModalContext";
       title: "Join Us  ",
       url: "#join-us",
       isActive: false,
-    }
+    },
   ]);
 
-   const { openModal, isModalOpen, closeModal } = useModal();
-   return (
+  const { openModal, isModalOpen, closeModal } = useModal();
+  return (
     <header className="text-white fixed z-10 top-0 left-0 w-full bg-secondary">
       <div className="container">
         <div className="h-20 flex justify-between items-center">
@@ -90,13 +92,19 @@ import { useModal } from "../context/ModalContext";
           <div className="hidden lg:flex">
             <ul className="flex space-x-6">
               {menu.map((item) => (
-                <a href={item.url} key={item.id} onClick={() => handleMenuClick(item.id)} >
+                <a
+                  href={item.url}
+                  key={item.id}
+                  onClick={() => handleMenuClick(item.id)}
+                >
                   <li
                     className={`cursor-pointer relative group ${
-                      item.isActive ? "text-primary" : ""
+                      item.isActive
+                        ? "text-primary  "
+                        : ""
                     }`}
                   >
-                    {item.title}    
+                    {item.title}
                     <span className="absolute bottom-0 left-1/2 w-0 h-[2px] bg-primary transition-all duration-300 transform -translate-x-1/2 group-hover:w-full"></span>
                   </li>
                 </a>
@@ -107,18 +115,16 @@ import { useModal } from "../context/ModalContext";
             <LinkButton
               buttontype="button"
               type="dark"
-               url="javascript:void(0)"
-               text="Enquire Now"
-               onClick={openModal}
+              url="javascript:void(0)"
+              text="Enquire Now"
+              onClick={openModal}
               // side={"l"}
-              
             />
           </div>
           <div className="lg:hidden">
             <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
               {isMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
             </button>
-            
           </div>
         </div>
       </div>
@@ -127,34 +133,41 @@ import { useModal } from "../context/ModalContext";
           isMenuOpen ? "h-screen opacity-100" : "h-0 opacity-0"
         } overflow-hidden`}
       >
-        <ul className="flex flex-col space-y-4 p-4 ab " >
+        <ul className="flex flex-col space-y-4 p-4 ab ">
           {menu.map((item) => (
-           <>
-            <a href={item.url} key={item.id} onClick={() => {setIsMenuOpen(false); handleMenuClick(item.id)}}>
-              <li
-                className={`cursor-pointer relative group ${
-                  item.isActive ? "text-primary" : ""
-                }`}
+            <>
+              <a
+                href={item.url}
+                key={item.id}
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  handleMenuClick(item.id);
+                }}
               >
-                {item.title}
-                <span className="absolute bottom-0 left-1/2 w-0 h-[2px] bg-primary transition-all duration-300 transform -translate-x-1/2 group-hover:w-full"></span>
-              </li>
-            </a>
-          
-           </>
+                <li
+                  className={`cursor-pointer relative group ${
+                    item.isActive ? "text-primary" : ""
+                  }`}
+                >
+                  {item.title}
+                  <span className="absolute bottom-0 left-1/2 w-0 h-[2px] bg-primary transition-all duration-300 transform -translate-x-1/2 group-hover:w-full"></span>
+                </li>
+              </a>
+            </>
           ))}
         </ul>
         <div className="p-4">
           <LinkButton
-          buttontype="button"
-             type="dark"
+            buttontype="button"
+            onClick={openModal}
+            type="dark"
             text="Enquire Now"
             url="/"
-              side={"l"}
+            side={"l"}
           />
         </div>
       </div>
- 
+
       <div className="h-[1px] bg-gradient-to-l from-transparent via-primary to-transparent"></div>
     </header>
   );
