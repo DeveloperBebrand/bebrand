@@ -1,4 +1,4 @@
-    import Logo from "../assets/logo.png";
+    import Logo from "../assets/be-brand.png";
     import AfterPay from "../assets/brandlogo/afterpay.png";
     import BaseCamp from "../assets/brandlogo/basecamp.png";
     import Maze from "../assets/brandlogo/maze.png";

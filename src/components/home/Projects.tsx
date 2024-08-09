@@ -35,7 +35,7 @@ export default function Projects() {
     },
     {
       id: 2,
-      title: "PARK UP, LESS SPACE MORE CITY",
+      title: "PARK UP, Less Space More City",
       description:
         "The World's most compact and powerful rotary robotic parking ,blending urban aesthetic sith German-Korean engineering , all in the space of tow cars",
       image: ProjectTwo,
@@ -43,7 +43,7 @@ export default function Projects() {
     },
     {
       id: 3,
-      title: "Hafiz Mustafa , THE MOST DELECIOUS DESSERTS ON EARTH ",
+      title: "Hafiz Mustafa , The Most Delicious Desserts On Earth ",
       description:
         "At Hafız Mustafa Confectionaries, we take great pride in our more than one-and-a-half-century history and our signature desserts’ cultural and historical significance.",
       image: ProjectFour,
@@ -51,7 +51,7 @@ export default function Projects() {
     },
     {
       id: 4,
-      title: "BE VIP, FROM BOOKING TO DRIVING",
+      title: "BE VIP, From Booking To Driving",
       description:
         " BE VIP is the Best luxury car rental Dubai starting from 1000 AED per day. Choose from our extensive fleet of the latest sports and luxury cars, including the iconic Ferrari, powerful Lamborghini, elegant Bentley, Mercedes, Porsche, Rolls Royce, and BMW. Experience the ultimate driving experience in Dubai with our 24/7 delivery and unbeatable prices. Book Luxury Cars for rent in Dubai.",
       image: ProjectFive,
@@ -59,7 +59,7 @@ export default function Projects() {
     },
     {
       id: 5,
-      title: "BEYOND , FROM SOURCE TO INDUSTRIES ",
+      title: "BEYOND , From Source To Industries ",
       description:
         "We deliver high-quality industrial minerals and construction materials across continents. Our network is for efficient logistics and distribution, enabling local markets to benefit from global resources ",
       image: ProjectThree,
@@ -132,7 +132,8 @@ useEffect(() => {
         <div className="container">
           <span className="text-primary text-sm">The Schemes at Hand </span>
           <h2 className="text-white text-4xl font-bold mt-5">
-            Projects have dummy names, so please provide the real one
+           
+           Our Latest Projects
           </h2>
 
           {Projects.map((project, index) => (
