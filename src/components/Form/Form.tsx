@@ -71,7 +71,7 @@ export default function Form() {
     <>
       <ToastContainer />
       <form
-        className="flex flex-col items-center justify-center w-full max-w-md mx-auto "
+        className="flex flex-col items-center justify-center w-full"
         onSubmit={handleSubmit}
       >
         {" "}

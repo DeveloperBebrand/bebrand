@@ -74,18 +74,14 @@ input{
   overflow: hidden;
   will-change: transform;
 }
-.form-modal-input{
-  width: 420px;
-  
  
-}
 
-
+/* 
 @media (max-width: 480px) {
   .form-modal-input{
-    width: 300px !important;
+    width: 350px !important;
   }
-}
+} */
 
 
 
@@ -130,10 +126,4 @@ input{
   50% { box-shadow: 0 0 15px 5px orange; }
 } 
  
-@media (max-width: 768px) {
-  .modal-responsive{
-    height: 91vh!important;
-  }
-}
-
 
