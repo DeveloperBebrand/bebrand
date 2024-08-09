@@ -177,7 +177,7 @@ useEffect(() => {
           />
         </div>
         <motion.h2
-          className={`text-white md:text-6xl cap lg:text-4xl text-2xl md:px-0 px-4 font-bold  lg:absolute relative lg:bottom-10 bottom-2  ${
+          className={`text-white md:text-6xl cap lg:text-4xl text-2xl md:px-0 mt-2 lg:mt-0 px-4 font-bold  lg:absolute relative lg:bottom-10 bottom-2  ${
             project.imagePosition === "left"
               ? "md:-left-[400px] left-[0px]"
               : "md:-right-[400px] right-[0px]"

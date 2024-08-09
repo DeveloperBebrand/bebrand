@@ -14,8 +14,11 @@ export default function Footer() {
           </div>
           <div className="w-3/5 flex justify-center">
             <div className="w-12 h-12 rounded-full bg-gradient-to-br flex justify-center items-center from-primarytransparent via-primarytransparent to-transparent animate-pulse">
-            <Link href="/" replace>
-                <div className="hover:-mt-4 transition-all duration-3000 ease-in-out w-10 h-10 rounded-full flex justify-center items-center">
+            <div onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} >
+                <div 
+                  className="hover:-mt-4 transition-all duration-3000 ease-in-out w-10 h-10 rounded-full flex justify-center items-center"
+                   
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -23,7 +26,6 @@ export default function Footer() {
                     strokeWidth={1.5}
                     stroke="currentColor"
                     className="size-5 text-primary active"
- 
                   >
                     <path
                       strokeLinecap="round"
@@ -32,12 +34,14 @@ export default function Footer() {
                     />
                   </svg>
                 </div>
-              </Link>
+              </div>
             </div>
           </div>
           <div className="w-1/5 text-end">
             {/* all rights reserved */}
-            <p className="text-lightgray text-sm">
+            
+              <p className="text-lightgray text-xs ">PBU-D68 - First Floor - Dubai Production City - Dubai</p>
+            <p className="text-lightgray text-xs lg:text-sm  ">
               &copy; 2024 All rights reserved
             </p>
           </div>
